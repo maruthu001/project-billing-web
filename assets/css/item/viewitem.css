@@ -1,0 +1,92 @@
+*{
+    text-decoration: none;
+}
+
+header .logo img{
+    width:100px;
+    margin-left:25px;
+  
+}
+main{
+    height: auto;
+}
+body{
+    
+    font-family:sans-serif;
+    background-image:url(../../Imges/HOME.jpg) ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    width:fit-content ;
+}
+header div .nav{
+    display:flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+main .forms{
+    font-size:25px;
+    align-items: center;
+    
+}
+form h2{
+ font-size: 40px;
+ text-align: center;
+ display: block;
+ 
+}
+.one{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-content: center;
+}
+
+.lists{
+    font-size: 25px;
+    margin-top: 15px;
+    padding: 10px;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-around;
+    padding-top: 30px;
+}
+.continue{
+    color:white;
+}
+.content1{
+    display:flex;
+    margin-left: 500px;
+}
+
+.one form .parts{
+    font-size: 25px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    align-content: center; 
+   width: 45em;
+   align-items: center;
+}
+ .button{
+    font-size:30px;
+    background-color: green;
+    border: 2px solid green ;
+    border-radius: 4px;
+    display: inline;
+    margin-left: 5px;
+}
+.content1 .button span{
+    padding-left: 5px;
+    font-size: 40px;
+    padding-right: 5px;
+    
+}
+
+
+
