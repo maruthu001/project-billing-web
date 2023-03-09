@@ -1,126 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Items</title>
+    <title>M A M Billing</title>
     <link rel="stylesheet" href="../../assets/css/item/item.css">
-    <link rel="stylesheet" href="../../assets/css/normalize.css"/>
+    <link rel="stylesheet" href="../../assets/css/normalize.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
     <header>
-        <div>
-            <div class="nav">
-        <div  class="logo">
-            <a href="file:///C:/Users/MaruthanAlagar/Desktop/project/pages/homepage/homepage.html"><img  src="../../assets/Imges/M_A_M.png    " alt="Logo pic" /></a></div>
-        <div class="list">
-            <ul class="link">
-                <li class="navlist"><a class="navlist" href="#">Item</a></li>
-                <li class="navlist"><a class="navlist" href="file:///C:/Users/MaruthanAlagar/Desktop/project/pages/stock/stock.html">Stock</a></li>
-                <li class="navlist"><a class="navlist" href="file:///C:/Users/MaruthanAlagar/Desktop/project/pages/customer/customer.html">Customer</a></li>
-                <li class="navlist"><a class="navlist" href="C:/Users/MaruthanAlagar/Desktop/project/pages/billing/billing.html">Bill</a></li>
-                
-                
-            </ul>
-        </div>
+        <div class="header">
+            <a href="../homepage/homepage.html"><img class="logo" src="../../assets/Imges/M_A_M.png" alt="logo" width="110px" /></a>
+            <div class="list1">
+                <a class="nav1" href="#">Item</a>
+                <a href="../stock/stock.html">Stock</a>
+                <a href="../customer/customer.html">Customer</a>
+                <a href="../billing/billing.html">Bill</a>
+                <a href="../profile/viewprofile.html">Profile</a>
             </div>
-            </header>
-            <main>
-                <div class="additem">
-                    <h2>Item List</h2>
-                    <button><a class="top" href="file:///C:/Users/MaruthanAlagar/Desktop/project/pages/item/additem.html"> &#x002B;Add New Item </a></button>
-
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a class="link" href="../item/item.html">Item</a>
+                    <a class="link" href="../stock/stock.html">Stock</a>
+                    <a class="link" href="../customer/customer.html">Customer</a>
+                    <a class="link" href="../billing/billing.html">Bill</a>
+                    <a class="link" href="../profile/viewprofile.html">Profile</a>
                 </div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="additem">
+            <h2>Item List</h2>
+            <div class="search">
+            <button><a class="top" href="../item/additem.html"> &#x002B;Add New Item </a></button>
+            <button><a href="./searchitem.html"><i class="fa fa-search"></a></i></button>
+        </div>
+
+        </div>
+
+    </main>
+    <footer>
+        <h3>Copyright © 2023 M A M Billing Software</h3>
+
+        <button class="btn" type="submit"><a href="../homepage/cards.html">Contact Us</a></button>
+
+
+
+
+    </footer>
+
+
+    <script>
+
+
+     let productDetails = JSON.parse(localStorage.getItem("productDetails")); 
+
+
+               // main table
+            main_table = document.createElement("table");
+            main_table.setAttribute("class", "table");
+            
+            
+
+            
+           // table row
+            table_row = document.createElement("tr");
+            table_row.setAttribute("class", "tb1");
+            // label_name.innerText = register_shop[i]["name"];
+            main_table.append(table_row);
+       
+            //table coloumn_1
+        table_coloumn = document.createElement("th");
+        table_coloumn.innerText = "Name";
+        table_row.append(table_coloumn);
+         
+        
+        //table coloumn_2
+          table_coloumn = document.createElement("th");
+          table_coloumn.innerText = "Special Name";
+        table_row.append(table_coloumn);
+         
+        //table coloumn_3
+          table_coloumn = document.createElement("th");
+          table_coloumn.innerText = "ID";
+        table_row.append(table_coloumn);
+        
+        //table coloumn_4
+          table_coloumn = document.createElement("th");
+          table_coloumn.innerText = "Price";
+        table_row.append(table_coloumn);
+         
+        //table coloumn_5
+          table_coloumn = document.createElement("th");
+          table_coloumn.innerText = "View";
+        table_row.append(table_coloumn);
+
+        for( i=0; i<productDetails.length;i++){
+        
+            // table row
+         table_row_1 = document.createElement("tr");
+         table_row_1.setAttribute("class", "tb1");
+            // label_name.innerText = register_shop[i]["name"];
+            main_table.append(table_row_1);
+       
+            //table coloumn_1
+        table_coloumn_1 = document.createElement("td");
+        table_coloumn_1.innerText = productDetails[i]["product_name"];
+        table_row_1.append(table_coloumn_1);
+          //table coloumn_1
+          table_coloumn_1 = document.createElement("td");
+          table_coloumn_1.innerText = productDetails[i]["special_name"];
+          table_row_1.append(table_coloumn_1);
+          //table coloumn_1
+          table_coloumn_1 = document.createElement("td");
+          table_coloumn_1.innerText =  productDetails[i]["product_id"];
+          table_row_1.append(table_coloumn_1);
+          //table coloumn_1
+          table_coloumn_1 = document.createElement("td");
+          table_coloumn_1.innerText = productDetails[i]["price"];
+          table_row_1.append(table_coloumn_1);
+          //table coloumn_1
+          table_coloumn_1_arrow = document.createElement("td");
+         
+          table_row_1.append(table_coloumn_1_arrow);
+i
+          let nameValue = productDetails[i].product_id
+// Set the value as a parameter in a URL
+const url = "./viewitems/viewitem1.html?product_id=" + encodeURIComponent(nameValue);
+
+          //anchor
+          a_tag = document.createElement("a");
+          a_tag.setAttribute("class", "arrow");
+          a_tag.innerText = "→";
+          a_tag.setAttribute("href", url);
+          table_coloumn_1_arrow.append(a_tag);
+         
+       
+
+
+          
+        }
+        document.querySelector("main").append(main_table)   
+
+
     
 
-                <table class="table">
-                <tr class="tb1">
-                    <th>Name</th>
-                    <th>ID</th>
-                    <th>weight</th>
-                    <th>Price</th>
-                    <th>View</th>
-                </tr>
-                <tr>
-                    <td>Rice</td>
-                    <td>A0091</td>
-                    <td>1KG</td>
-                    <td>55/-</td>
-                    <td><a class="arrow" href="file:///C:/Users/MaruthanAlagar/Desktop/project/pages/item/viewitem.html">&#8594;</a></td>
-                </tr>
-                <tr>
-                    <td>Sugar</td>
-                    <td>A0115</td>
-                    <td>1KG</td>
-                    <td>38/-</td>
-                    <td><a class="arrow" href="file:///C:/Users/MaruthanAlagar/Desktop/project/pages/item/viewitem.html">&#8594;</a></td>
-                </tr>
-                <tr>
-                    <td>Jaggry(Vellam)</td>
-                    <td>A0102</td>
-                    <td>1KG</td>
-                    <td>65/-</td>
-                    <td><a class="arrow" href="file:///C:/Users/MaruthanAlagar/Desktop/project/pages/item/viewitem.html">&#8594;</a></td>
-                </tr>
-                <tr>
-                    <td>Refind Oil(Gold Winner)</td>
-                    <td>A0091</td>
-                    <td>1Ltr</td>
-                    <td>180/-</td>
-                    <td><a class="arrow" href="file:///C:/Users/MaruthanAlagar/Desktop/project/pages/item/viewitem.html">&#8594;</a></td>
-                </tr>
-                <tr>
-                    <td>Salt</td>
-                    <td>A0083</td>
-                    <td>1KG</td>
-                    <td>15/-</td>
-                    <td><a class="arrow" href="file:///C:/Users/MaruthanAlagar/Desktop/project/pages/item/viewitem.html">&#8594;</a></td>
-                </tr>
-                <tr>
-                    <td>Sesame oil</td>
-                    <td>A0112</td>
-                    <td>500ml</td>
-                    <td>95/-</td>
-                    <td><a class="arrow" href="file:///C:/Users/MaruthanAlagar/Desktop/project/pages/item/viewitem.html">&#8594;</a></td>
-                </tr>
-                <tr>
-                    <td>Potato</td>
-                    <td>A0202</td>
-                    <td>1KG</td>
-                    <td>35/-</td>
-                    <td><a class="arrow" href="file:///C:/Users/MaruthanAlagar/Desktop/project/pages/item/viewitem.html">&#8594;</a></td>
-                </tr>
-                <tr>
-                    <td>Tomato</td>
-                    <td>A0102</td>
-                    <td>1KG</td>
-                    <td>15/-</td>
-                    <td><a class="arrow" href="file:///C:/Users/MaruthanAlagar/Desktop/project/pages/item/viewitem.html">&#8594;</a></td>
-                </tr>
-                <tr>
-                    <td>Green Chilli</td>
-                    <td>A0232</td>
-                    <td>1KG</td>
-                    <td>25/-</td>
-                    <td><a class="arrow" href="file:///C:/Users/MaruthanAlagar/Desktop/project/pages/item/viewitem.html">&#8594;</a></td>
-                </tr>
-                <tr>
-                    <td>Carrot</td>
-                    <td>A0342</td>
-                    <td>1KG</td>
-                    <td>65/-</td>
-                    <td><a class="arrow" href="file:///C:/Users/MaruthanAlagar/Desktop/project/pages/item/viewitem.html">&#8594;</a></td>
-                </tr>
-                </table>
-                
+
+        
+        
 
 
 
-
-
-
-
-            </main>
+    </script>
 </body>
+
 </html>

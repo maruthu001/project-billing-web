@@ -1,45 +1,24 @@
-# Folder_structure
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=fssa-batch3_maruthan.alagar__web_project&metric=bugs)](https://sonarcloud.io/summary/new_code?id=fssa-batch3_maruthan.alagar__web_project)
 
-    .
-    ├── assets                  # Compiled files 
-    ├── pages                   # Compiled files
-    ├── index.html
-    └── README.md
 
-## assets
+Userflow : https://drive.google.com/drive/folders/1VDiP6IlCi3fnf6GGEF-LKljH47jsb9lY  
+WireFrame:  https://drive.google.com/drive/folders/1VDiP6IlCi3fnf6GGEF-LKljH47jsb9lY   
+Problem Statement: https://drive.google.com/drive/folders/1VDiP6IlCi3fnf6GGEF-LKljH47jsb9lY 
 
-    .
-    ├── assets                  # Compiled files 
-        ├── images              # Compiled files 
-        ├── css                 # Compiled files 
-        └── js                  # Compiled files 
 
-### assets/images
+M A M Billing-Features
 
-    .
-    ├── images                  # Compiled files 
-        ├── logo.svg            # Compiled files 
-        └── banner.png          # Compiled files 
+1. User Module  
+    1. Register   
+    2. Login  
+    3. Profile Edit/Delete  
 
-### assets/css
-
-    .
-    ├── css                     # Compiled files 
-        ├── normalize.css       # Compiled files 
-        ├── style.css           # Compiled files 
-        ├── header.css          # Compiled files 
-        └── footer.css          # Compiled files 
-
-## pages
-
-    .
-    └── pages                         
-        └── Products                  
-            ├── product_list.html               # Compiled files
-            ├── new_product.html                # Compiled files
-            └── edit_product.html               # Compiled files
-        └── Orders                              
-            ├── order_list.html                 # Compiled files
-            ├── new_order.html                  # Compiled files
-            ├── edit_order.html                 # Compiled files
-            └── order_details.html              # Compiled files
+2. Product Module
+    1. Create product
+    2. Create Product List
+    3. Read / Update Product Details
+    4. Delete Product Details  
+2. Stock Module 
+    1. Create Stock     
+   
+   

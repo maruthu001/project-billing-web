@@ -1,96 +1,145 @@
+@import url("../header.css");
+@import url("../footer.css");
 
-header .logo img{
-    width:100px;
-    margin-left:25px;
-   
+.nav1{
+    border-bottom: 3px solid blue;
 }
-body{
-    color:black;
-    font-family:sans-serif;
-    background-image:url(../../Imges/HOME.jpg) ;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    width:auto ;
-}
-body a{
-    text-decoration:none;
-    color:black;
+.addstock button {
 
-}
-header div .nav{
-    display:flex;
-    justify-content: space-between;
-    align-content: center;
-}
- header div .list .link{
-    display:flex;
-    justify-content: space-between;
-    
-}
-header div .list .link .navlist{
-    list-style: none;
-    padding-right:20px;
-    margin-top:40px;
-    font-size: 20px;
-    color:black;
-    font-weight: bold;
-    font-size: 25px;
-}
-header div .list .link .navlist:hover{
- color:blue !important;
-}
-.addstock button{
-   
     font-size: 30px;
-    background-color:lightblue;
+    background-color: lightblue;
     display: inline;
     justify-content: end;
-   width: fit-content;
-   border-radius: 5px;
-   height:2em;
-   margin: 0.5em;
-   border-color: lightblue;
-   color: black !important;
+    width: fit-content;
+    border-radius: 5px;
+    height: 2em;
+    border-color: lightblue;
+    color: white;
+    margin-left:19px 
 }
 
-.addstock{
-    display:flex;
+.addstock {
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-.addstock h2{
-    font-size: 30px;
-    margin: 1em;
-    margin-top: 23px;
+.dropdown{
+    display: none;
 }
 
-td, th {
-    text-align: center;
-    width:fit-content;
+.addstock h2 {
+    font-size: 30px;
+    margin: 1em;
 }
+.search{
+    display: flex;
+    margin: 1em;
+}
+/* this is for search item page */
+.searchbox{
+    width: 470px;
+    height: 60px;
+    font-size: 25px;
+    background-color: lightblue;
+}
+.srch{
+    font-size: 25px;
+    background-color: lightblue;
+    border-color: lightblue;
+    margin-left:0 !important;
+
+
+}
+
+/* ended here */
+
+/* td,
+th {
+    text-align: center;
+    width: fit-content;
+}
+
 td {
     text-align: center;
-    width:fit-content;
+    width: fit-content;
     background-color: white;
+} */
+
+td {
+    text-align: center;
+    width: fit-content;
+    background-color: white;
+    color: black;
+    height: 2.5em;
 }
-.arrow{
-    font-size: 25px;
+th{
+    height: 3em;
 }
-table{
-    width:75em;
-    height:31em;
+
+table {
+    width: 100%;
+    height: 3em;
     font-size: 20px;
     align-items: center;
     background-color: wheat;
-    
+
 }
-.tb1{
-    background-color: darkblue !important ;
+.arrow {
+    font-size: 25px;
+}
+
+
+
+.tb1 {
+    background-color: darkblue !important;
     color: white;
 }
 
-.arrow:hover{
+.arrow:hover {
     color: red;
 
 }
+@media screen and (max-width: 400px) {
+
+    body{
+        font-size: 16px;
+    }
+    header .logo {
+        width: 70px;
+        margin-left:0 !important;
+      }
+    .addstock h2{
+        font-size: 20px;
+        margin: 1em;
+    
+    }
+    .addstock button{
+        font-size: 20px;
+        height: 2.5em;
+    }
+    .addstock{
+        margin-top: 2em;
+    }
+    .searchbox{
+        width: 230px;
+        height:3.3em;
+        font-size: 15px;
+    
+    }
+    .srch{
+        width:3em;
+    }
+    table{
+        font-size: 14px;
+        height: fit-content;
+        width: 100%;
+        margin-top: 2em;
+    }
+    .forres{
+        display: none;
+    }
+    
+    
+    
+    
+    }
