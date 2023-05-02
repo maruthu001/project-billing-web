@@ -28,39 +28,63 @@
                     <div class="part1">
                         <div class="content">
                             <label class="forms">Product Name</label>
-                            <input class="lists" id="product_name" required />
+                            <input class="lists" type="text" id="product_name" pattern="[a-zA-Z]+" title="Use Letters to Add Product Name.Don't use space or any special Characters"  required />
 
                         </div>
+
+
+                        
                         <div class="content">
-                            <label class="forms">Quantity</label>
-                            <input class="lists" id="quantity" required />
+                            <div class="label">
+                                <label class="forms">Quantity:</label>
+                                <label for="type" id="tp">Type:</label>
+                            </div>
+                            <div class="quan">
+                                <input class="lists" id="quantity" type="number" placeholder="Choose Number"
+                                    oninput="checkQuan()" required />
+                                <div class="typeport">
+
+                                    <select class="lists" name="type" id="type" required >
+                                        <option value="">--Select--</option>
+                                        <option value="kgs">kg</option>
+                                        <option value="mg">mg</option>
+                                        <option value="g">g</option>
+                                        <option value="ml">ml</option>
+                                        <option value="ltr">Ltr</option>
+                                        <option value="nos">Nos</option>
+                                    </select>
+                                    
+                                </div>
+                            </div>
                         </div>
+
+
                         <div class="content">
                             <label class="forms">MRP(per Piece)</label>
-                            <input class="lists" id="mrp" required />
+                            <input class="lists" type="number" id="mrp" required />
                         </div>
 
                         <div class="content">
                             <label class="forms">Price(per piece)</label>
-                            <input class="lists" id="price" required />
+                            <input class="lists"type="number" id="price" required />
                         </div>
                     </div>
                     <div class="part1">
                         <div class="content">
                             <label class="forms">Tax(%)</label>
-                            <input class="lists" id="tax" required />
+                            <input class="lists" type="number" id="tax" oninput="checkTax()" required />
                         </div>
                         <div class="content">
                             <label class="forms">Discount(%)</label>
-                            <input class="lists" id="discount" required />
+                            <input class="lists" type="number" id="discount" oninput="checkDis()" required />
                         </div>
                         <div class="content">
                             <label class="forms">ID Number</label>
-                            <input class="lists" id="product_id" required />
+                            <input class="lists" type="text" id="product_id" pattern="[A-Za-z0-9]+" required />
                         </div>
                         <div class="content">
                             <label class="forms">Special name(optional)</label>
-                            <input class="lists" id="special_name" />
+                            <input class="lists" type="text" id="special_name" pattern="[A-Za-z]+" title="Use Letters to Edit Special Name. Don't use space or any special Characters"/>
                         </div>
                         <div class="radio">
                             <input type="radio" name="stock" id="instock" value="in stock" /> <label> In Stock </label>
@@ -105,12 +129,14 @@ const myParamValue = params.get('product_id');
 
 
         function update(e) {
+            event.preventDefault()
             //                  // getting the updated data from the input field
             // const shop_name = document.getElementById("shop_name").value;
             // const licence_number = document.getElementById("licence_number").value;
             // const phone_number = document.getElementById("phone_number").value;
             let product_name = document.getElementById("product_name").value;
             let quantity = document.getElementById("quantity").value;
+            let type = document.getElementById("type").value;
             let mrp = document.getElementById("mrp").value;
             let price = document.getElementById("price").value;
             let tax = document.getElementById("tax").value;
@@ -136,6 +162,7 @@ const myParamValue = params.get('product_id');
 
             product_records["product_name"] = product_name;
             product_records["quantity"] = quantity;
+            product_records["type"] = type;
             product_records["mrp"] = mrp;
             product_records["price"] = price;
             product_records["tax"] = tax;
@@ -154,15 +181,15 @@ const myParamValue = params.get('product_id');
 
             // again paste it to the
             localStorage.setItem("productDetails", JSON.stringify(productDetails));
-
             alert("Product Details Successfully Updated")
             window.location.href = "../item.html"
+            
 
         }
 
 
-        const sumbit = document.querySelector(".button");
-        sumbit.addEventListener("click", update);
+        // const sumbit = document.querySelector(".button");
+        // sumbit.addEventListener("click", update);
 
         //   const back =document.querySelector(".button_1");
         //   back.addEventListener("click",backbutton);
@@ -176,7 +203,8 @@ const myParamValue = params.get('product_id');
         }
 
         document.getElementById("product_name").value = product_records["product_name"];
-        document.getElementById("quantity").value = product_records["quantity"]
+        document.getElementById("quantity").value = product_records["quantity"];
+        document.getElementById("type").value = product_records["type"]
         document.getElementById("mrp").value = product_records["mrp"];
         document.getElementById("price").value = product_records["price"];
         document.getElementById("tax").value = product_records["tax"];
@@ -196,7 +224,22 @@ const myParamValue = params.get('product_id');
 }
 
 
+function checkDis(){
+   
+   if(discount.value.length > 2){
+       alert("Discount should be between 0 % - 100 %")
+       document.getElementById("discount").value = product_records["discount"];
+       
+   }
+ }
 
+ function checkTax(){
+   if(tax.value.length > 2 ){
+       alert("Tax should be between 0 % - 100 %")
+       document.getElementById("tax").value = product_records["tax"];
+      
+   }
+}
 
 
 

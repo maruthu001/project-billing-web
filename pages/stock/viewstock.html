@@ -29,7 +29,7 @@
                     <div class="part1">
                         <div class="content">
                             <label class="forms">Name</label>
-                            <input class="lists" id="stock_name" type="text" required />
+                            <input class="lists" id="stock_name" type="text" pattern="[a-zA-Z]+" title="Use Letters to Add Stock Name.Don't use space or any special Characters" required  />
                         </div>
                         <div class="content">
                             <label class="forms">Brand Name</label>
@@ -52,11 +52,11 @@
                     <div class="part1">
                         <div class="content">
                             <label class="forms">Tax(%)</label>
-                            <input class="lists" id="tax" type="number" required />
+                            <input class="lists" id="tax" type="number"   oninput="checkTax()" />
                         </div>
                         <div class="content">
                             <label class="forms">Discount(%)</label>
-                            <input class="lists" id="discount" type="number" required />
+                            <input class="lists" id="discount" type="number" oninput="checkDis()" />
                         </div>
                         <div class="content">
                             <label class="forms">Agency ID</label>
@@ -64,21 +64,21 @@
                         </div>
                         <div class="content">
                             <label class="forms">Agency Details</label>
-                            <input class="lists" id="agency_details" type="text" />
+                            <input class="lists" id="agency_details" type="text"required />
                         </div>
                         <div class="content">
                             <label class="forms">Date</label>
-                            <input class="lists" id="date" type="date" style="width: 13.5em;" />
+                            <input class="lists" id="date" type="date" style="width: 13.5em;" required/>
                         </div>
 
                     </div>
 
                 </div>
                 <div class="content1">
-                    <button class="button" type="button" onclick="backbutton()" class="registerbtn"><span>&#10094;</span>Back</button>
-                    <button class="button" id="save_data" type="submit" >Save<span>&#10095;</span></button>
+                    
+                    <button class="button"  type="button" onclick="backbutton()"><span>&#10094;</span>Back</button>
+                <button class="button" type="submit" >Save<span>&#10095;</span></button>
                 </div>
-
             </form>
         </div>
 
@@ -104,10 +104,12 @@ const myParamValue = params.get('stock_name');
 
 
    
+        
 
 
 
         function update(e) {
+            event.preventDefault()
             //                  // getting the updated data from the input field
             // const shop_name = document.getElementById("shop_name").value;
             // const licence_number = document.getElementById("licence_number").value;
@@ -145,27 +147,23 @@ const myParamValue = params.get('stock_name');
 
             // again paste it to the
             localStorage.setItem("stockDetails", JSON.stringify(stockDetails));
-            window.location.href = "./stock.html" 
-
             alert("Stock Details Successfully Updated")
+            window.location.href = "./stock.html" 
+            
           
 
         }
 
-
-        // const sumbit = document.getElementById("save_data");
-        // sumbit.addEventListener("click", update(event));
-
-        //   const back =document.querySelector(".button_1");
-        //   back.addEventListener("click",backbutton);
-
-
-
-
         function backbutton() {
-            alert("Are You Sure Discard Changes!")
+            confirm("Are You Sure Discard Changes!")
             window.location.href = "./stock.html"
         }
+
+        // const sumbit = document.querySelector(".button");
+        // sumbit.addEventListener("click", update);
+
+
+
 
         document.getElementById("stock_name").value = stock_records["stock_name"];
         document.getElementById("quantity").value = stock_records["quantity"]
@@ -186,6 +184,22 @@ const myParamValue = params.get('stock_name');
 
 
 
+        function checkDis(){
+   
+   if(discount.value.length > 2){
+       alert("Discount should be between 0 % - 100 %")
+       document.getElementById("discount").value = stock_records["discount"];
+       
+   }
+ }
+
+ function checkTax(){
+   if(tax.value.length > 2 ){
+       alert("Tax should be between 0 % - 100 %")
+       document.getElementById("tax").value = stock_records["tax"];
+      
+   }
+}
 
 
 

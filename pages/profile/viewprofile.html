@@ -32,79 +32,66 @@
     <main>
         <h2>Profile</h2>
         <div class="one">
-            <form id="sign-form" onsubmit=" update(event)"  >
+            <form id="sign-form" onsubmit="update(event)"  >
 
                 <div class="part">
 
                     <div class="content">
                         <label class="forms">Shop Name</label>
-                        <input class="lists" id="shop_name" type="text"  required readonly/>
+                        <input class="lists" id="shop_name" type="text"  required />
 
                     </div>
 
                     <div class="content">
                         <label class="forms">License Number</label>
-                        <input class="lists" id="licence_number" type="text"
-                            required disabled />
+                        <input class="lists" id="licence_number" type="text"  pattern="[A-Z0-9]+" onclick="giveNo()" maxlength="14" title="Don't Use space and any Special Characters.Use A_Z and 1-9 and Must Be 14 Characters"
+                            required  readonly/>
                     </div>
                     <div class="content">
                         <label class="forms">Phone Number</label>
-                        <input class="lists" id="phone_number" type="tel" required readonly />
+                        <input class="lists" id="phone_number" type="tel" pattern="^[789]\d{9,9}$" maxlength="10" title="Use Numbers begin with 7,8,9 and must Enter 10 Characters" required />
                     </div>
 
                     <div class="content">
                         <label class="forms">E-Mail Address</label>
-                        <input class="lists" id="user_email" type="email" readonly />
+                        <input class="lists" id="user_email" type="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  onclick="giveNo()"  title="Please enter correct Email" readonly/>
                     </div>
-                    <!-- <div class="content">
-                        <label class="forms">Username(E-mail Address)</label>
-                        <input class="lists" id="username" type="email" />
-                    </div> -->
+                 
                 </div>
                 <div class="part1">
                     <div class="content">
                         <label class="forms">GSTN Number</label>
-                        <input class="lists" id="gstn_number" type="text" placeholder="Enter GSTN Number"  required  readonly/>
+                        <input class="lists" id="gstn_number" type="text" placeholder="Enter GSTN Number"   maxlength="15" pattern="\d{2}[A-Z]{5}\d{4}[A-Z]{1}[A-Z\d]{1}[Z]{1}[A-Z\d]{1}" title="Don't Use space and any Special Characters.Use A-Z and 1-9 and Must Be 15 Characters" required  />
 
                     </div>
                     <div class="content">
                         <label class="forms">Address</label>
-                        <input class="lists" id="address" type="text" placeholder="Enter Shop Address" required readonly/>
+                        <input class="lists" id="address" type="text" placeholder="Enter Shop Address" maxlength="250" required />
 
                     </div>
                     <div class="content">
                         <label class="forms">Shop Logo</label>
-                        <input class="lists" id="file" type="file" placeholder="Upload Logo" readonly />
+                        <input class="lists" id="file" type="text"  placeholder="Upload Logo" onclick="giveAlert()" readonly/>
 
                     </div>
                     <div class="content">
                         <label class="forms">Print Name</label>
-                        <input class="lists" id="nameforprint" type="text" placeholder="Enter Print Name" required readonly />
+                        <input class="lists" id="nameforprint" type="text"  placeholder="Enter Print Name" onclick="giveAlert()" readonly/>
 
                     </div>
-                    <!-- <div class="content">
-                        <label class="forms">Password</label>
-                        <input class="lists" id="password" type="text" required />
 
-                    </div> -->
                 </div>
                 <div class="content1">
                     <button class="button_1" onclick="backbutton()"  type="button"><span>&#x1F870;</span> Back</button>
-                    <!-- <button class="button" id="edit" type="submit">
-                        edit</button> -->
+  
                     <button class="button" id="save"type="submit" >
-                        Save</button>
+                        Save<span>&#x1F872;</span></button>
                        
                  </div>  
         
             </form>
         </div>
-        <!-- <div class="content1">
-            <button class="button_1" onclick="backbutton()"  type="button"><span>&#x1F870;</span> Back</button>
-             <button class="button" onclick="(event)"  type="submit">
-                Save<span>&#x1F872;</span></button>
-               
-         </div>   -->
+     
 
 
 
@@ -114,9 +101,15 @@
 
 let userRecords = JSON.parse(localStorage.getItem("userRecords"));
 let unique = localStorage.getItem("unique")
+
+
+
       function findDetail(e){
           return e.user_email===unique;
       }
+
+
+
       let user_records = userRecords.find(findDetail);
 
       document.getElementById("shop_name").value = user_records["shop_name"];
@@ -127,40 +120,35 @@ let unique = localStorage.getItem("unique")
 
        
       function update(e){
-//                  // getting the updated data from the input field
-// const shop_name = document.getElementById("shop_name").value;
-// const licence_number = document.getElementById("licence_number").value;
-// const phone_number = document.getElementById("phone_number").value;
-let user_email = document.getElementById("user_email").value;
+
 let gstn_number = document.getElementById("gstn_number").value;
 let address = document.getElementById("address").value;
 let nameforprint = document.getElementById("nameforprint").value;
-              
 
-
-
-// paste the updated data to the correct object
 
 
 user_records["gstn_number"] = gstn_number;
 user_records["address"] = address;
 user_records["nameforprint"] = nameforprint;
               
-
-
-
-// again paste it to the
                 localStorage.setItem("userRecords", JSON.stringify(userRecords));
                 alert("Successfully Updated")
-                window.location.href="../homepage/homepage.html"
+               
+                
             }
+
+
+
+
+            
+            if(user_records["gstn_number"].value === "undefiened"){
+    gstn_number.setAttribute("placeholder","Enter GSTN Number")
+}
+       
             document.getElementById("gstn_number").value = user_records["gstn_number"];
         document.getElementById("address").value = user_records["address"];
         document.getElementById("nameforprint").value = user_records["nameforprint"];
 
-
-        //     const sumbit =document.querySelector(".button");
-        //   sumbit.addEventListener("click",update);
 
 
 
@@ -168,10 +156,11 @@ user_records["nameforprint"] = nameforprint;
 
        
         function backbutton() {
+
         window.location.href="../homepage/homepage.html"
         }
         function logout() {
-            alert("Are you Sure !")
+            alert("Are you Sure Logout")
         window.location.href="../login/login.html"
         }
 
@@ -179,7 +168,7 @@ user_records["nameforprint"] = nameforprint;
 
 
         function remove(){
-
+            
             let user_Records = JSON.parse(localStorage.getItem("userRecords"));
             let unique_1 = localStorage.getItem("unique")
            
@@ -202,37 +191,17 @@ user_records["nameforprint"] = nameforprint;
 
 }
 
-// const sumbit =document.querySelector("#save");
-//           sumbit.addEventListener("submit",update)
-//           sumbit.addEventListener("click",findReadonly1)
-//       function findReadonly(e){
 
-//         document.getElementById("shop_name").removeAttribute("readonly");
-//         document.getElementById("phone_number").removeAttribute("readonly");
-//         document.getElementById("user_email").removeAttribute("readonly");
-//         document.getElementById("gstn_number").removeAttribute("readonly");
-//         document.getElementById("address").removeAttribute("readonly");
-//         document.getElementById("file").removeAttribute("readonly");
-//         document.getElementById("nameforprint").removeAttribute("readonly");
-        
-//         document.querySelector("#edit").removeAttribute("style");
-//         document.querySelector("#save").setAttribute("style","display:none");
-//       }
-//       function findReadonly1(e){
-//         document.getElementById("shop_name").setAttribute("readonly","true");
-//         document.getElementById("phone_number").setAttribute("readonly","true");
-//         document.getElementById("user_email").setAttribute("readonly","true");
-//         document.getElementById("gstn_number").setAttribute("readonly","true");
-//         document.getElementById("address").setAttribute("readonly","true");
-//         document.getElementById("file").setAttribute("readonly","true");
-//         document.getElementById("nameforprint").setAttribute("readonly","true");
-        
 
-//         document.querySelector("#edit").setAttribute("style","display:none");
-//         document.querySelector("#save").setAttribute("style","display:inline");
-//       }
-//       const editThing = document.querySelector("#edit");
-//       editThing.addEventListener("click",findReadonly);
+function giveAlert(){
+     alert("You need Premium Account To Access this Input")
+}
+
+function giveNo(){
+     alert("This is not Editable or Can't Be Change")
+}
+
+
 
        
        
